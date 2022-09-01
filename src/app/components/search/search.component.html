@@ -1,0 +1,84 @@
+<div class="container-fluid " style="margin-top: 70px">
+    <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+
+      </div>
+      <button (click)="getList()" >Get Data</button>
+    <div class="row h-50">
+        <div class="col-sm-4  ">
+            <div class="">
+                Select Country
+            </div>
+        </div>
+        <div class="col-sm-4  ">
+            <div class="">Select Company</div>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="">Select User</div>
+        </div>
+    </div>
+    <div class="row h-50" style="margin-top: 15px">
+        <div class="col-sm-4  ">
+            <div>
+                <div>
+                    <ng-select
+                    [items]="countries"
+                    [multiple]="true"
+                    bindLabel="countryName"                   
+                    [clearSearchOnAdd]="true"
+                    [closeOnSelect]="false"
+                    bindValue="countryId"
+                    [(ngModel)]="selectedCountries">
+                   
+                    <ng-template ng-option-tmp let-item1="item" let-item$="item$" let-index="index">
+                        <input id="item-{{index}}" type="checkbox"  [ngModel]="item$.selected"/> {{item1.countryName}}
+                    </ng-template>
+                   
+                </ng-select>
+                
+                
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-4  ">
+            <div>
+                <div>
+                    <ng-select
+                    [items]="companies"
+                    [multiple]="true"
+                    bindLabel="name"                  
+                    [clearSearchOnAdd]="true"
+                    [closeOnSelect]="false"
+                    bindValue="companyId"
+                    [(ngModel)]="selectedCompanies">
+                    
+                    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                        <input id="item-{{index}}" type="checkbox"  [ngModel]="item$.selected"/> {{item.name}}
+                    </ng-template>
+                </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4  ">
+            <div>
+                <div>
+                    <ng-select
+                    [items]="users"
+                    [multiple]="true"
+                    bindLabel="name"                  
+                    [clearSearchOnAdd]="true"
+                    [closeOnSelect]="false"
+                    bindValue="userId"
+                    [(ngModel)]="selectedUsers">
+                    
+                    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                        <input id="item-{{index}}" type="checkbox"  [ngModel]="item$.selected"/> {{item.name}}
+                    </ng-template>
+                </ng-select>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  
